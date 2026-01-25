@@ -53,19 +53,15 @@ steps:
     docker push $(latestImageName)
   displayName: 'Push docker image'
 
-# - task: Kubernetes@1
-#   displayName: 'kubectl update deployment'
-#   inputs:
-#     kubernetesServiceEndpoint: 'aks-hk-01'
-#     command: 'apply'
-#     arguments: '-f https://raw.githubusercontent.com/OpenReservation/OpenReservation.ScheduleServices/main/k8s/manifests/deployment.yaml'
+- task: SSH@0
+  displayName: 'Run shell inline on remote machine'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  inputs:
+    sshEndpoint: 'weihanli-vm'
+    runOptions: inline
 
-# - task: Kubernetes@1
-#   displayName: 'kubectl set image'
-#   inputs:
-#     kubernetesServiceEndpoint: 'aks-hk-01'
-#     command: 'set'
-#     arguments: 'image deployment/$(serviceName) $(serviceName)=$(imageName)'
+    inline: |
+      kubectl set image deployment/schedule-services schedule-services=$(imageName)
 
 - script: |
     dotnet-exec "https://github.com/OpenReservation/scripts/blob/main/deploy/azure-pipelines-notification.cs" < /dev/null
