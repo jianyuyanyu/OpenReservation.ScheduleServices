@@ -7,7 +7,7 @@ namespace OpenReservation.ScheduleServices.Jobs;
 public sealed class WeatherQueryJob(IServiceProvider serviceProvider)
     : AbstractJob(serviceProvider)
 {
-    public override string CronExpression => "0 15,23 * * *";
+    public override string CronExpression => "0 13,23 * * *";
 
     protected override async Task ExecuteInternalAsync(IServiceProvider scopeServiceProvider, CancellationToken cancellationToken)
     {
