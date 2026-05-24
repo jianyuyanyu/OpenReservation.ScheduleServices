@@ -4,11 +4,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AngleSharp" Version="1.4.0" />
-    <PackageVersion Include="dotenv.net" Version="4.0.0" />
-    <PackageVersion Include="Hangfire.AspNetCore" Version="1.8.22" />
+    <PackageVersion Include="dotenv.net" Version="4.0.2" />
+    <PackageVersion Include="Hangfire.AspNetCore" Version="1.8.23" />
     <PackageVersion Include="Hangfire.MemoryStorage" Version="1.8.1.2" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.2.0" />
-    <PackageVersion Include="ReferenceResolver" Version="0.34.0" />
-    <PackageVersion Include="WeihanLi.Web.Extensions" Version="2.3.2" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.6.0" />
+    <PackageVersion Include="ReferenceResolver" Version="0.36.0" />
+    <PackageVersion Include="WeihanLi.Web.Extensions" Version="2.3.3" />
   </ItemGroup>
 </Project>
